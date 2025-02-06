@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Rooms</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>Choose a Chat Room</h2>
+
+    <div class="list-group mt-3">
+        <a href="chat.html?room=devops" class="list-group-item list-group-item-action">DevOps</a>
+        <a href="chat.html?room=cloud" class="list-group-item list-group-item-action">Cloud Computing</a>
+        <a href="chat.html?room=covid19" class="list-group-item list-group-item-action">COVID-19</a>
+        <a href="chat.html?room=sports" class="list-group-item list-group-item-action">Sports</a>
+        <a href="chat.html?room=nodejs" class="list-group-item list-group-item-action">NodeJS</a>
+    </div>
+
+    <button onclick="window.location.href='private_chat.html'" class="btn btn-primary mt-4 w-100">
+        Go to Private Messages
+    </button>
+
+    <button id="logoutBtn" class="btn btn-danger mt-4 w-100">
+        Logout
+    </button>
+
+    <script>
+        document.getElementById("logoutBtn").addEventListener("click", () => {
+            localStorage.removeItem("token");  // Remove authentication token
+            localStorage.removeItem("username");  // Remove stored username
+            alert("Logged out successfully!");
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>
